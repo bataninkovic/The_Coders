@@ -23,10 +23,20 @@
  <?php
         $link = mysqli_connect("localhost", "root", "7b4cd", "tickets") or die ("cannot connect to database");
         ?>
-            <?php
 
-            $sql = "SELECT * FROM tickets WHERE ID ";
-            $result = mysqli_query($link, $sql) or die ("Cannot select data from database");
+        
+
+            <?php
             
-           
+            $id = $_GET['ticket_id'];
+            $sql = "SELECT * FROM tickets WHERE id = $id";
+            $result = mysqli_query($link, $sql) or die ("Cannot select data from database");
+
+            echo $id;
+            while ($row = mysqli_fetch_array($result)) {
+            echo $row['issue'];
+}
+            
+            
+
 ?>

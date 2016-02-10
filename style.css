@@ -64,7 +64,10 @@ body {
     background-color: yellow;
 }
 
-
+#removebtn{
+    background-color: crimson;
+    margin: -2px;
+}
 
 #succesmsg{
     text-align: center;

@@ -14,7 +14,7 @@
             $buttonref = "<a>href='?page=reacttoticket'></a>";
             $sql = "SELECT * FROM tickets";
             $result = mysqli_query($link, $sql) or die ("Cannot select data from database");
-            
+            $deleteticket = "DELETE * FROM tickets";
 
             echo "<div id='mijntickets'>";                   
             
@@ -25,12 +25,13 @@
                 $onderwerp = $row['subject'];
                 $issue = $row['issue'];
                 $tijd = $row['timestamp'];
+                $id = $row['id'];
                 
-                echo "<tr><td>".$onderwerp."</td><div id='myissue'><td>".$issue."</td></div><td>".$tijd."</td><td><div id='reageerknop'><a href='?page=reacttoticket'><input type='button' value='Reageer' </div></a></td></tr>";  
+                
+                echo "<tr><td>".$onderwerp."</td><div id='myissue'><td>".$issue."</td></div><td>".$tijd."</td><td><div id='reageerknop'><a href='?page=reacttoticket&ticket_id=".$id."'><input type='button' value='Reageer' </div></a></td><td><div id='removebtn'><a href=''><input type='button' value='Verwijderen'></div></td></tr>";  
             }
               echo "</table><br/><br/></div>";
               mysqli_close($link)
-              
               
             ?>
             </content>
