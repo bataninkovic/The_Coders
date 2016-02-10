@@ -1,0 +1,173 @@
+body, html {
+    margin: 0;
+    height: 100%
+}
+
+body {
+    font: sans-serif;
+}
+
+#formulier{
+    text-align: left;  
+
+}
+.ticketweergave, td{
+    border-collapse: collapse;
+    border: 2px solid;
+    padding: 3px;
+
+}
+
+#succesmsg{  
+    color: green;
+    position: absolute;
+    left: 63.5em;
+    top: 45em;
+}
+#mijntickets{
+    border: 2px;
+    width: 100%;
+    text-align: center;
+
+}
+
+#tickettitel{
+}
+
+.issueveld{
+    width:  60em;
+    padding-bottom: 10em;
+    margin-bottom: 10px;
+    overflow: hidden;
+    resize: none;
+}
+
+#myissue{
+    text-align: right;
+}
+
+#myissue:hover{
+    background-color: none;
+}
+
+#verzendknop{
+    text-align: center;
+    text-decoration: blink;
+}
+
+#reageerknop{
+    background-color: background;
+    margin: -2px;
+}
+
+#reageerknop:hover{
+    background-color: yellow;
+}
+
+
+
+#succesmsg{
+    text-align: center;
+}
+
+.Ticksys {
+    min-height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+header {
+    text-align: center;
+    background: rgb(55, 55, 55);
+    color: #fff;
+    display: flex;
+    flex-flow: row;
+}
+
+h1 {
+    padding: 10px;
+    font-size: 2.7em;
+    color: white;
+    text-align: center;
+}
+
+
+.nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+}
+
+.nav li {
+    border:1px solid #fff;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    font-size: 1.5em;
+    padding: 8px
+}
+
+a:hover {
+    background: grey;
+}
+
+.openticket:hover{
+    background-color: #fff;
+}
+
+.openticket{
+    color: black;
+    font-size: 1.1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+content {
+    display: flex;
+    flex: 1 1 auto;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    width: 100%;
+    background: rgb(75, 75, 75);
+    color: rgb(205, 205, 205);
+    font-weight: 100;
+    padding: 10px 0;
+    text-align: center
+}
+
+content section {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px
+}
+
+content section p {
+    padding-bottom: 20px
+}
+
+footer {
+    background: darkgrey;
+    text-align: center;
+    padding: 10px;
+}
+
+h3{
+    font-size: 50px;
+    color:rgb(205, 205, 205);
+}
+
+.ticket{
+    width:  60em;
+    padding-bottom: 10em;
+    margin-bottom: 10px;
+    overflow: hidden;
+    resize: none;
+}
