@@ -53,6 +53,10 @@ and open the template in the editor.
                             // Pagina met eigen tickets
                             include ("reacttoticket.php");
                             break;
+                        case 'deleteticket':
+                            // Pagina met eigen tickets
+                            include ("deleteticket.php");
+                            break;
                     }
 
 
