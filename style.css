@@ -69,8 +69,48 @@ body {
     margin: -2px;
 }
 
+#reactieveld{
+    position: relative;
+    top: 3em;
+    left: -36em;
+    height: 60px;
+    resize: none;
+    width: 70.5em;
+    height: 8em;
+}
+
+#reactiebtn{
+    position: relative;
+    top : 3em;
+    left: -30em;
+}
+
+#actie{
+    position: relative;
+    left: -29.4em;
+    top: 3.1em;
+    margin: 10px;
+}
+
+#issue{
+    position: relative;
+    left: -29.5em;
+    top: -0.6em;
+    margin: 10px;
+}
+
+.reacttoticketfield{
+    text-align: center;
+    position: relative;
+    top: -3.5em;
+    left: 29.6em;
+    width: 60em;
+    height: 3em;
+}
+
 #succesmsg{
     text-align: center;
+    top: 46.4em;
 }
 
 .Ticksys {

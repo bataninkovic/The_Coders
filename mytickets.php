@@ -28,7 +28,7 @@
                 $id = $row['id'];
                 
                 
-                echo "<tr><td>".$onderwerp."</td><div id='myissue'><td>".$issue."</td></div><td>".$tijd."</td><td><div id='reageerknop'><a href='?page=reacttoticket&ticket_id=".$id."'><input type='button' value='Reageer' </div></a></td><td><div id='removebtn'><a href=''><input type='button' value='Verwijderen'></div></td></tr>";  
+                echo "<tr><td>".$onderwerp."</td><div id='myissue'><td>".$issue."</td></div><td>".$tijd."</td><td><div id='reageerknop'><a href='?page=reacttoticket&ticket_id=".$id."'><input type='button' value='Bekijk' </div></a></td><td><div id='removebtn'><a href=''><input type='button' value='Verwijderen'></div></td></tr>";  
             }
               echo "</table><br/><br/></div>";
               mysqli_close($link)
