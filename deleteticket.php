@@ -19,10 +19,12 @@ and open the template in the editor.
         
             <?php
             
-            $id = $_GET['ticket_id'];
-            $sql = "DELETE * FROM tickets WHERE id = '$id'";
-            $result = mysqli_query($link, $sql) or die ("Cannot select data from database");
+            $id = $_POST['ticket_id'];
+            $sql = "DELETE FROM tickets WHERE id = $id";
+            $result = mysqli_query($link, $sql) or die ("Cannot delete data from database");
 
+
+            
             if($result){
                 echo "Ticket is verwijderd";
             }   else {
