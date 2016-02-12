@@ -9,8 +9,8 @@ body {
 
 #formulier{
     text-align: left;  
-
 }
+
 .ticketweergave, td{
     border-collapse: collapse;
     border: 2px solid;
@@ -87,7 +87,7 @@ body {
 
 #actie{
     position: relative;
-    left: -29.4em;
+    left: -29.5em;
     top: 3.1em;
     margin: 10px;
 }
@@ -103,7 +103,7 @@ body {
     text-align: center;
     position: relative;
     top: -3.5em;
-    left: 29.6em;
+    left: 29.5em;
     width: 60em;
     height: 3em;
 }
@@ -133,7 +133,6 @@ h1 {
     color: white;
     text-align: center;
 }
-
 
 .nav {
     display: flex;
