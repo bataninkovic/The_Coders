@@ -18,7 +18,7 @@ and open the template in the editor.
 
         
             <?php
-            
+            $url = "?page=mytickets.php";
             $id = $_POST['ticket_id'];
             $sql = "DELETE FROM tickets WHERE id = $id";
             $result = mysqli_query($link, $sql) or die ("Cannot delete data from database");
@@ -26,7 +26,8 @@ and open the template in the editor.
 
             
             if($result){
-                echo "Ticket is verwijderd";
+                echo "<script type='text/javascript'>alert('Ticket is verwijderd');</script>";
+
             }   else {
             echo "Error";
             }

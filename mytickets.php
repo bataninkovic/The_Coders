@@ -34,7 +34,6 @@
               mysqli_close($link)
               
             ?>
-        
             </content>
 </section>
     </body>
