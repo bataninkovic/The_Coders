@@ -12,52 +12,51 @@ and open the template in the editor.
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <content>
-            <section>
-                <div id="tickettitel">Dien hier uw ticket in.<div>
-                <div id="formulier">
-        <form method="post">
-            Onderwerp :<br>
-            <input  method="post" id="onderwerp" type="text" name="onderwerp" style="width: 60em; text-align:left"></br>
-            Issue : <br>
-            <textarea id="issueveld" class="issueveld" type="text" name="issueveld"></textarea>
-            <div id="verzendknop"><input type="submit" name="verzendknop" value="Verzenden" action="customerform.php"></div>
-        </form>    
-            </div>
-            </section>
-       </content>     
-    </body>
-</html>
+    <content>
+        <section>
+            <div id="tickettitel">Dien hier uw ticket in.<div>
+                    <div id="formulier">
+                        <form method="post">
+                            Onderwerp :<br>
+                            <input  method="post" id="onderwerp" type="text" name="onderwerp" style="width: 60em; text-align:left"></br>
+                            Issue : <br>
+                            <textarea id="issueveld" class="issueveld" type="text" name="issueveld"></textarea>
+                            <div id="verzendknop"><input type="submit" name="verzendknop" value="Verzenden" action="customerform.php"></div>
+                        </form>
+                    </div>
+                    </section>
+                    </content>
+                    </body>
+                    </html>
 
-<?php
+                    <?php
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        $link = mysqli_connect('localhost', 'root', 'powers00', 'tickets')or die("Cannot connect to database");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-$link = mysqli_connect('localhost', 'root', '7b4cd', 'tickets')or die("Cannot connect to database");
-
-$onderwerp = $_POST['onderwerp'];
-$issueveld = $_POST['issueveld'];
-$timestamp = $_SERVER['REQUEST_TIME'];
-$date = date('d-m-y',$timestamp);
-$time = (date('h:i:s', $timestamp));
-
+                        $onderwerp = $_POST['onderwerp'];
+                        $issueveld = $_POST['issueveld'];
+                        $timestamp = $_SERVER['REQUEST_TIME'];
+                        $date = date('d-m-y', $timestamp);
+                        $time = (date('h:i:s', $timestamp));
 
 
-    $sql="INSERT INTO tickets(subject, issue, timestamp) VALUES('$onderwerp','$issueveld','$date,$time')";
+
+                        $sql = "INSERT INTO tickets(subject, issue, timestamp) VALUES('$onderwerp','$issueveld','$date,$time')";
 
 
-mysqli_query($link, $sql);
-$result= mysql_errno();
+                        mysqli_query($link, $sql);
+                        $result = mysql_errno();
 
-if($result){?>
-<div id="errormsg"> Error </div>
-<?php 
-}else{    
-?>
-    
-<div id="succesmsg"> Uw ticket is verzonden.</div>
-<?php
-}
+                        if ($result) {
+                            ?>
+                            <div id="errormsg"> Error </div>
+                            <?php
+                        } else {
+                            ?>
 
-}
-?>
+                            <div id="succesmsg"> Uw ticket is verzonden.</div>
+                            <?php
+                        }
+                    }
+                    ?>
 
