@@ -38,6 +38,7 @@ namespace WindowsFormsApplication1
         {
             SqlConnection conn = new SqlConnection(@"Data Source=BATA\SQLEXPRESS;Initial Catalog=TickSys;Integrated Security=True");
             conn.Open();
+            int ludo = 0;
 
             var items = new Dictionary<string, int>();
 
