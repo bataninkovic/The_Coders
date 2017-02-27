@@ -1,0 +1,176 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+
+
+namespace WindowsFormsApplication1
+{
+    public partial class TicketSysteem : Form
+    {
+        int count = 0;
+        public TicketSysteem()
+        {
+            InitializeComponent();
+        }
+        public string lblcount = "0";
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(@"Data Source = WIN-NU46G3I55DR\SQLEXPRESS;Initial Catalog = TickSys;
+            Integrated Security = True; Connect Timeout = 30;
+            Encrypt=False;TrustServerCertificate=True;ApplicationIntent=
+            ReadWrite;MultiSubnetFailover=False");
+            conn.Open();
+
+            var items = new Dictionary<string, int>();
+
+            SqlCommand comm = new SqlCommand("SELECT COUNT(*) as cnt,ticket_state FROM dbo.Tickets group by ticket_state", conn);
+            SqlDataReader r = comm.ExecuteReader();
+            if (r.HasRows)
+            {
+                while (r.Read())
+                {
+                    int count = r.GetInt32(0);
+                    string ticket = r.GetString(1);
+ 
+                }
+            }
+
+            var serie = new Series();
+            serie.ChartType = SeriesChartType.Bar;
+            serie.Points.Add();
+            chart1.Series.Add(serie);
+            
+                                       
+            conn.Close();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SendNewTicket_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(NewTicketState.Text))
+            {
+                MessageBox.Show("Selecteer een Ticketstatus.");
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(NewSubjectBox.Text))
+                {
+                    MessageBox.Show("Het ticketonderwerp ontbreekt vul deze in a.u.b.");
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(NewIssueBox.Text))
+                    {
+                        MessageBox.Show("Het issueveld is leeg vul dit in a.u.b.");
+                    }
+                    else
+                    {
+
+                        SqlConnection con = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB;Initial Catalog = Ticksys;
+                        Integrated Security = True; Connect Timeout = 30;
+                        Encrypt=False;TrustServerCertificate=True;ApplicationIntent=
+                        ReadWrite;MultiSubnetFailover=False");
+                        {
+                            string insertCmdText = "INSERT INTO dbo.Tickets(ticket_subject, ticket_issue, ticket_state)values('" + this.NewSubjectBox.Text + "','" + this.NewIssueBox.Text + "','" + this.NewTicketState.Text + "');";
+                            SqlCommand sqlCom = new SqlCommand(insertCmdText, con);
+                            con.Open();
+                            sqlCom.ExecuteNonQuery();
+                            con.Close();
+
+                            MessageBox.Show("De Ticket is aangemaakt, u ontvangt zo spoedig mogelijk terugkoppeling.");
+                        }
+                    }
+                }
+            }
+        }
+        private void DashboardTab_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DisplayUserBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source = WIN-NU46G3I55DR\SQLEXPRESS;Initial Catalog = Ticksys;
+                        Integrated Security = True; Connect Timeout = 30;
+                        Encrypt=False;TrustServerCertificate=True;ApplicationIntent=
+                        ReadWrite;MultiSubnetFailover=False");
+                        con.Open();
+                    {
+                SqlDataReader UserData;
+
+                SqlCommand DisplayUsers = new SqlCommand ("SELECT * FROM dbo.Users WHERE Id != 1",con);
+                DisplayUsers.ExecuteNonQuery();
+                UserData = DisplayUsers.ExecuteReader();
+                DataTable dt = new DataTable("dbo.Users");
+                dt.Load(UserData);
+
+                //while (UserData.Read())
+                //{
+                //    for (int idx = 0; idx != UserData.FieldCount; ++idx)
+                //    {
+                //        //DisplayUserBox.Items.Add(UserData.GetFieldType(idx));
+                //        if (UserData.GetFieldType(idx) == Type.GetType("System.String"))
+                //        {
+                //            DisplayUserBox.Items.Add(UserData.GetFieldValue<String>(idx));
+                //            continue;
+                //        }
+                //    }
+                //}
+
+                DisplayUserBox.Items.Clear();
+                foreach (DataRow dr in dt.AsEnumerable())
+                {
+                    DisplayUserBox.Items.Add(dr.Field<String>("username"));
+                    int ludo = dr.Field<Int32>("Id");
+                }
+            }
+        }
+
+        private void MainTab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (MainTab.SelectedIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+                default:
+                    MainTab.SelectedIndex = 0;
+                    break;
+            }
+        }
+    }
+}
+    
