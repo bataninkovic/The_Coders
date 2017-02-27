@@ -20,9 +20,11 @@ namespace WindowsFormsApplication1
         
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string hostName = System.Net.Dns.GetHostName();
-            SqlConnection con = new SqlConnection(@"Data Source=" + hostName + "\\SQLEXPRESS;Initial Catalog=TickSys;Integrated Security=True");
-            con.Open();
+            //string hostName = System.Net.Dns.GetHostName();
+            //SqlConnection con = new SqlConnection(@"Data Source=" + hostName + "\\SQLEXPRESS;Initial Catalog=TickSys;Integrated Security=True");
+            //con.Open();
+
+            SqlConnection con = Database.Instance().Connection;
 
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM dbo.Users WHERE username='" + Loginuser.Text + "' AND passwd='" + Loginpass.Text + "'", con);
 

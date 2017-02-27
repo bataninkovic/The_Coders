@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database.cs" />
     <Compile Include="doTicket.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
